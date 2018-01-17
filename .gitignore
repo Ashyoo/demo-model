@@ -1,0 +1,10 @@
+/node_modules
+/dist
+/.sass-cache
+./npm-debug.log
+.DS_Store
+
+.vscode
+.idea
+.vscode/launch.json
+
