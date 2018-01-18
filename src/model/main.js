@@ -19,11 +19,14 @@ const model = new Model({
 model.showLoading()
 setTimeout(() => {
   model.hideLoadling()
-}, 1000)
+}, 1500)
 
 // showloading
 document.getElementById('btnShowLoading').onclick = function() {
   model.showLoading()
+  setTimeout(() => {
+    model.hideLoadling()
+  }, 1500)
 }
 
 // 成功状态

@@ -28,6 +28,9 @@ export default class Model {
     this.createMsgBox()
     this.msgBox.className = 'msg-box suc'
     this.msgBox.innerHTML = `${div}`
+    this.maskBox.onclick = () => {
+      this.hideMask()
+    }
   }
 
   // showFail
@@ -36,6 +39,9 @@ export default class Model {
     this.createMsgBox()
     this.msgBox.className = 'msg-box fail'
     this.msgBox.innerHTML = `${div}`
+    this.maskBox.onclick = () => {
+      this.hideMask()
+    }
   }
 
   // hideMask
@@ -53,9 +59,6 @@ export default class Model {
       this.maskBox = document.getElementById(this.maskId)
     }
     this.maskBox.className = 'mask-box'
-    // this.maskBox.onclick = () => {
-    //   this.hideMask()
-    // }
   }
 
   // create msgBox
