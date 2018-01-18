@@ -9,7 +9,17 @@ import './images/s.jpg'
 import './images/f.jpg'
 
 // 弹出框
-const model = new Model('maskBox', 'msgBox')
+const model = new Model({
+  maskid: 'maskBox',
+  msgid: 'msgBox',
+  loadlingid: 'loadingBox'
+})
+
+// 初始化页面 loading
+model.showLoading()
+setTimeout(() => {
+  model.hideLoadling()
+}, 1000)
 
 // showloading
 document.getElementById('btnShowLoading').onclick = function() {

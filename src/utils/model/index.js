@@ -2,13 +2,13 @@
 import './index.less'
 
 export default class Model {
-  constructor(maskid, msgid) {
+  constructor({ maskid, msgid, loadlingid }) {
     this.maskBox = null
     this.msgBox = null
     this.loading = null
     this.maskId = maskid
     this.msgId = msgid
-    this.loadlingId = null
+    this.loadlingId = loadlingid
   }
 
   // showLoading
@@ -19,10 +19,10 @@ export default class Model {
 
   // hideLoading
   hideLoadling() {
-    this.maskBox.removeChild(this.loading)
+    document.body.removeChild(this.maskBox)
   }
 
-  // success
+  // showSuccess
   showSuccess(div) {
     this.createMaskBox()
     this.createMsgBox()
@@ -30,12 +30,17 @@ export default class Model {
     this.msgBox.innerHTML = `${div}`
   }
 
-  // fail
+  // showFail
   showFail(div) {
     this.createMaskBox()
     this.createMsgBox()
     this.msgBox.className = 'msg-box fail'
     this.msgBox.innerHTML = `${div}`
+  }
+
+  // hideMask
+  hideMask() {
+    document.body.removeChild(this.maskBox)
   }
 
   // create maskBox
@@ -48,9 +53,9 @@ export default class Model {
       this.maskBox = document.getElementById(this.maskId)
     }
     this.maskBox.className = 'mask-box'
-    this.maskBox.onclick = () => {
-      this.hideMask()
-    }
+    // this.maskBox.onclick = () => {
+    //   this.hideMask()
+    // }
   }
 
   // create msgBox
@@ -80,10 +85,5 @@ export default class Model {
     } else {
       this.loading = document.getElementById(this.loadlingId)
     }
-  }
-
-  // 隐藏弹出框
-  hideMask() {
-    document.body.removeChild(this.maskBox)
   }
 }
