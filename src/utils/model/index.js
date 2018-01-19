@@ -22,34 +22,31 @@ export default class Model {
     document.body.removeChild(this.maskBox)
   }
 
-  // showSuccess
-  showSuccess(div) {
+  /**
+   * showModel
+   * isHideMask(点击遮罩层是否关闭弹窗，默认：false)
+   */
+  showModel(div, isHideMask) {
     this.createMaskBox()
     this.createMsgBox()
-    this.msgBox.className = 'msg-box suc'
     this.msgBox.innerHTML = `${div}`
-    this.maskBox.onclick = () => {
-      this.hideMask()
+    if (isHideMask === true) {
+      this.maskBox.onclick = () => {
+        this.hideMask()
+      }
     }
   }
 
-  // showFail
-  showFail(div) {
-    this.createMaskBox()
-    this.createMsgBox()
-    this.msgBox.className = 'msg-box fail'
-    this.msgBox.innerHTML = `${div}`
-    this.maskBox.onclick = () => {
-      this.hideMask()
-    }
-  }
-
-  // hideMask
+  /**
+   * hideMask
+   */
   hideMask() {
     document.body.removeChild(this.maskBox)
   }
 
-  // create maskBox
+  /**
+   * create maskBox
+   */
   createMaskBox() {
     if (!document.getElementById(this.maskId)) {
       this.maskBox = document.createElement('div')
@@ -61,10 +58,13 @@ export default class Model {
     this.maskBox.className = 'mask-box'
   }
 
-  // create msgBox
+  /**
+   * create msgBox
+   */
   createMsgBox() {
     if (!document.getElementById(this.msgId)) {
       this.msgBox = document.createElement('div')
+      this.msgBox.className = 'msg-box'
       this.msgBox.id = this.msgId
       this.maskBox.appendChild(this.msgBox)
     } else {
@@ -72,7 +72,9 @@ export default class Model {
     }
   }
 
-  // create loadling
+  /**
+   * create loadling
+   */
   createLoadling() {
     if (!document.getElementById(this.loadlingId)) {
       this.loading = document.createElement('div')

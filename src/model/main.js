@@ -15,6 +15,18 @@ const model = new Model({
   loadlingid: 'loadingBox'
 })
 
+// successModel
+const showSuccess = msg => {
+  const htmlSuccess = `<img src="./images/s.jpg" alt="fail" /><p>${msg}</p>`
+  model.showModel(htmlSuccess, true)
+}
+
+// failModel
+const showFail = msg => {
+  const htmlFail = `<img src="./images/f.jpg" alt="fail" /><p>${msg}</p>`
+  model.showModel(htmlFail)
+}
+
 // 初始化页面 loading
 model.showLoading()
 setTimeout(() => {
@@ -29,22 +41,12 @@ document.getElementById('btnShowLoading').onclick = function() {
   }, 1500)
 }
 
-// 成功状态
+// btnShowSuccess
 document.getElementById('btnShowSuccess').onclick = function() {
-  model.showLoading()
-  setTimeout(() => {
-    model.hideLoadling()
-    const htmlSuccess = '<img src="./images/s.jpg" alt="fail" /><p>success</p>'
-    model.showSuccess(htmlSuccess)
-  }, 1000)
+  showSuccess('success')
 }
 
-// 失败状态
+// btnShowFail
 document.getElementById('btnShowFail').onclick = function() {
-  model.showLoading()
-  setTimeout(() => {
-    model.hideLoadling()
-    const htmlFail = '<img src="./images/f.jpg" alt="fail" /><p>fail</p>'
-    model.showFail(htmlFail)
-  }, 1000)
+  showFail('fail')
 }
