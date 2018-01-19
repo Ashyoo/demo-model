@@ -1,0 +1,39 @@
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 45%;
+  left: 50%;
+  margin-left: -75px; /*no*/
+  width: 150px; /*no*/
+  text-align: center;
+
+  .bounce {
+    width: 15px; /*no*/
+    height: 15px; /*no*/
+    background: #fff;
+    border-radius: 100%;
+    display: inline-block;
+    animation: bouncedelay 1.4s infinite ease-in-out;
+    animation-fill-mode: both;
+  }
+
+  .bounce1 {
+    animation-delay: -0.32s;
+  }
+
+  .bounce2 {
+    animation-delay: -0.16s;
+  }
+}
+
+// loading效果
+@keyframes bouncedelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

@@ -1,5 +1,7 @@
 // 引入样式
 import './index.less'
+// 引入 loading 样式
+import '../loading/index.less'
 
 export default class Model {
   constructor({ maskid, msgid, loadlingid }) {
