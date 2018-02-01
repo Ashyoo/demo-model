@@ -1,32 +1,58 @@
-.loading {
-  position: fixed;
-  z-index: 9999;
-  top: 45%;
-  left: 50%;
-  margin-left: -75px; /*no*/
-  width: 150px; /*no*/
-  text-align: center;
+// .loading {
+//   position: fixed;
+//   z-index: 9999;
+//   top: 45%;
+//   left: 50%;
+//   margin-left: -75px; /*no*/
+//   width: 150px; /*no*/
+//   text-align: center;
 
-  .bounce {
-    width: 15px; /*no*/
-    height: 15px; /*no*/
-    background: #fff;
-    border-radius: 100%;
-    display: inline-block;
-    animation: bouncedelay 1.4s infinite ease-in-out;
-    animation-fill-mode: both;
-  }
+//   .bounce {
+//     width: 15px; /*no*/
+//     height: 15px; /*no*/
+//     background: #fff;
+//     border-radius: 100%;
+//     display: inline-block;
+//     animation: bouncedelay 1.4s infinite ease-in-out;
+//     animation-fill-mode: both;
+//   }
 
-  .bounce1 {
-    animation-delay: -0.32s;
-  }
+//   .bounce1 {
+//     animation-delay: -0.32s;
+//   }
 
-  .bounce2 {
-    animation-delay: -0.16s;
-  }
+//   .bounce2 {
+//     animation-delay: -0.16s;
+//   }
+// }
+
+.loading-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-// loading效果
+.loading-mask {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.ball-clip-rotate {
+  border-radius: 100%;
+  border: 2px solid #FD5729; /*no*/
+  border-bottom-color: transparent;
+  height: 25px; /*no*/
+  width: 25px; /*no*/
+  background: transparent;
+  animation: rotate 1s 0s linear infinite;
+  animation-fill-mode: both;
+}
+
+// 动画效果
 @keyframes bouncedelay {
   0%,
   80%,
@@ -35,5 +61,14 @@
   }
   40% {
     transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

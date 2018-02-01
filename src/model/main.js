@@ -3,7 +3,8 @@ import './css/style.less'
 
 // 引入依赖
 
-import Model from '../utils/model/index'
+import Model from '../utils/model'
+import Loading from '../utils/loading'
 
 import './images/s.jpg'
 import './images/f.jpg'
@@ -14,6 +15,13 @@ const model = new Model({
   msgid: 'msgBox',
   loadlingid: 'loadingBox'
 })
+
+// loading
+const loading = new Loading({
+  loadlingid: 'loading'
+})
+
+loading.showLoading(true, true)
 
 // successModel
 const showSuccess = msg => {
@@ -27,11 +35,11 @@ const showFail = msg => {
   model.showModel(htmlFail)
 }
 
-// 初始化页面 loading
-model.showLoading()
-setTimeout(() => {
-  model.hideLoadling()
-}, 1500)
+// // 初始化页面 loading
+// model.showLoading()
+// setTimeout(() => {
+//   model.hideLoadling()
+// }, 1500)
 
 // showloading
 document.getElementById('btnShowLoading').onclick = function() {
