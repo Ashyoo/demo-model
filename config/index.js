@@ -3,7 +3,7 @@
 const path = require('path')
 
 module.exports = {
-  fileName: 'model',
+  fileName: 'loading',
   // 额外没有main.js的文件打包
   additionalFiles: ['privacy', 'lib', 'assets'],
   // 不需要打包的项目 即不会出现在dist当中

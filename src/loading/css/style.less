@@ -1,0 +1,25 @@
+// reset
+@import '../../utils/styles/reset.less';
+
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 8px;
+  padding: 8px;
+}
+
+.btn {
+  color: #fff;
+  font-size: 24px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.btn:nth-child(2n) {
+  background: blue;
+}
+
+.btn:nth-child(2n + 1) {
+  background: rebeccapurple;
+}

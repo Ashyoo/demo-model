@@ -12,8 +12,8 @@ export default class Loading {
    * @param {*} isMask(是否有遮罩层，默认：false)
    * @param {*} isHideMask(点击遮罩层是否关闭弹窗，默认：false)
    */
-  showLoading(isMask, isHideMask) {
-    this.createLoadling()
+  showLoading({ type, isMask, isHideMask }) {
+    this.createLoadling(type)
     if (isMask === true) {
       this.loading.className = 'loading-wrap loading-mask'
     }
@@ -32,16 +32,27 @@ export default class Loading {
   /**
    * create loadling
    */
-  createLoadling() {
+  createLoadling(type, loadingBox) {
     if (!document.getElementById(this.loadlingId)) {
       this.loading = document.createElement('div')
       this.loading.id = this.loadlingId
       this.loading.className = 'loading-wrap'
-      const loadingBox = `<div class="loading ball-clip-rotate"></div>`
-      this.loading.innerHTML = loadingBox
+      this.loading.innerHTML = this.htmlLoading(type, loadingBox)
       document.body.appendChild(this.loading)
     } else {
       this.loading = document.getElementById(this.loadlingId)
+    }
+  }
+
+  htmlLoading(type, loadingBox) {
+    if (type === 1) {
+      return (loadingBox = `<div class="ball-clip-rotate"></div>`)
+    } else if (type === 2) {
+      return (loadingBox = `
+      <div class="bounce bounce1"></div>
+      <div class="bounce bounce2"></div>
+      <div class="bounce bounce3"></div>
+      `)
     }
   }
 }
